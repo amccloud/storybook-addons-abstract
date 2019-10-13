@@ -1,0 +1,66 @@
+{
+  "name": "storybook-addons-abstract",
+  "version": "5.0.0",
+  "description": "Abstract previews for storybook",
+  "keywords": [
+    "storybook",
+    "design",
+    "abstract",
+    "sketch",
+    "xd"
+  ],
+  "homepage": "https://github.com/amccloud/storybook-addons-abstract#readme",
+  "bugs": {
+    "url": "https://github.com/amccloud/storybook-addons-abstract/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amccloud/storybook-addons-abstract.git"
+  },
+  "license": "MIT",
+  "files": [
+    "dist/**/*",
+    "docs/**/*",
+    "README.md",
+    "register.js"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "check": "tsc",
+    "test": "yarn check && yarn lint",
+    "build": "babel src --out-dir dist --extensions '.ts,.tsx'"
+  },
+  "dependencies": {
+    "@storybook/addons": "5.3.0-alpha.11",
+    "@storybook/api": "5.3.0-alpha.11",
+    "@storybook/client-logger": "5.3.0-alpha.11",
+    "@storybook/components": "5.3.0-alpha.11",
+    "@storybook/core-events": "5.3.0-alpha.11",
+    "@storybook/theming": "5.3.0-alpha.11",
+    "abstract-sdk": "^3.1.1",
+    "core-js": "^3.0.1",
+    "global": "^4.3.2",
+    "prettier": "^1.18.2",
+    "react": "^16.8.3",
+    "ts-dedent": "^1.1.0",
+    "use-image": "^1.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "typescript": "^3.6.3"
+  }
+}
