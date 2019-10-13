@@ -4,6 +4,9 @@ import { useParameter, useStorybookState } from "@storybook/api";
 import { styled } from "@storybook/theming";
 import { PARAM_KEY } from "./constants";
 
+const ABSTRACT_APP_URL =
+  process.env.ABSTRACT_APP_URL || "https://app.abstract.com";
+
 const Iframe = styled.iframe({
   width: "100%",
   height: "100%",
@@ -45,7 +48,7 @@ export function Panel() {
   return React.useMemo(() => {
     if (!shareDescriptor) return null;
 
-    const embedUrl = `http://localhost:3006/embed/${inferShareId(
+    const embedUrl = `${ABSTRACT_APP_URL}/embed/${inferShareId(
       shareDescriptor
     )}?find={id}`;
 

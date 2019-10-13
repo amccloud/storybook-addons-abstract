@@ -18,6 +18,7 @@ jobs:
           node-version: 12
       - run: yarn install
       - run: yarn test
+      - run: yarn build
 
   publish-npm:
     needs: build
@@ -31,4 +32,3 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
