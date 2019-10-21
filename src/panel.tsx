@@ -5,7 +5,7 @@ import { styled } from "@storybook/theming";
 import { PARAM_KEY } from "./constants";
 
 const ABSTRACT_APP_URL =
-  process.env.ABSTRACT_APP_URL || "https://app.abstract.com";
+  process.env.STORYBOOK_ABSTRACT_APP_URL || "https://app.abstract.com";
 
 const Iframe = styled.iframe({
   width: "100%",
