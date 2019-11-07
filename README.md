@@ -2,8 +2,6 @@
 
 This addon for storybook allows you to link to Abstract layers and collections in the storybook panel!
 
-You can add as many shares to a single story as you want.
-
 ## Install
 
 ```sh
