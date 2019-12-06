@@ -45,7 +45,6 @@ or using the new [Component Story Format](https://storybook.js.org/docs/formats/
 
 ```js
 import React from "react";
-import { addParameters } from "@storybook/react";
 import { BlogIndex, BlogGallery, BlogPost } from "../";
 
 export default {

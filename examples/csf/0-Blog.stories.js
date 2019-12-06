@@ -1,5 +1,4 @@
 import React from "react";
-import { addParameters } from "@storybook/react";
 import { BlogIndex, BlogGallery, BlogPost } from "../";
 
 export default {
