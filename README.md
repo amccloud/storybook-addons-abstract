@@ -4,9 +4,10 @@ A addon for storybook that allows you to link to Abstract layers and collections
 
 ![Example](https://i.imgur.com/EtAb6x3.gif)
 
-## Demo
+## Examples
 
-https://storybook-addons-abstract.now.sh/
+- Storybook: https://storybook-addons-abstract.now.sh/
+- Source: https://github.com/amccloud/storybook-addons-abstract/tree/master/examples
 
 ## Install
 
