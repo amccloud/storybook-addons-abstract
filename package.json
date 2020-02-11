@@ -1,6 +1,6 @@
 {
   "name": "storybook-addons-abstract",
-  "version": "5.0.4",
+  "version": "5.0.6",
   "description": "Abstract previews for storybook",
   "keywords": [
     "storybook",
@@ -33,7 +33,7 @@
     "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "now-build": "yarn build && build-storybook --output-dir ./public",
+    "now-build": "NODE_ENV=production yarn build && NODE_ENV=production build-storybook --output-dir ./public",
     "now-dev": "start-storybook -p $PORT"
   },
   "dependencies": {
