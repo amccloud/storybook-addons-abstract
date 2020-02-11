@@ -14,9 +14,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --production=false
-      - run: yarn test
-      - run: yarn build
+      - run: yarn install
+      - run: NODE_ENV=production yarn build
       - run: npm publish
         env:
+          NODE_ENV: development
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
