@@ -2,7 +2,7 @@
   "build": {
     "env": {
       "NODE_ENV": "development",
-      "NODEJS_HELPERS": "false"
+      "NODEJS_HELPERS": "0"
     }
   }
 }
