@@ -8872,7 +8872,7 @@ store2@^2.7.1:
   integrity sha512-tWEpK0snS2RPUq1i3R6OahfJNjWCQYNxq0+by1amCSuw0mXtymJpzmZIeYpA1UAa+7B0grCpNYIbDcd7AgTbFg==
 
 "storybook-abstract-addon@file:.":
-  version "5.0.3"
+  version "5.0.6"
   dependencies:
     "@storybook/addons" "^5.2.8"
     "@storybook/api" "5.3.0-alpha.11"

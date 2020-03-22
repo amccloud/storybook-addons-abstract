@@ -33,7 +33,7 @@
     "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "now-build": "NODE_ENV=production yarn build && NODE_ENV=production build-storybook --output-dir ./public",
+    "now-build": "yarn build && build-storybook --output-dir ./public",
     "now-dev": "start-storybook -p $PORT"
   },
   "dependencies": {
