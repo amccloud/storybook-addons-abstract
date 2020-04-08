@@ -14,7 +14,9 @@ const Iframe = styled.iframe({
 });
 
 function parseShareURL(url: string): string | void {
-  return url.split(/share.(?:go)?abstract.com\//)[1];
+  const parsedUrl = new URL(url);
+  const pathSegments = parsedUrl.pathname.split('/');
+  return pathSegments[pathSegments.length - 1];
 }
 
 export function inferShareId(
