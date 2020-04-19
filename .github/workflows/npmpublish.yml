@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: NODE_ENV=production yarn build
       - run: npm publish
         env:
