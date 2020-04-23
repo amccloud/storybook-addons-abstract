@@ -14,9 +14,15 @@ const Iframe = styled.iframe({
 });
 
 function parseShareURL(url: string): string | void {
-  const parsedUrl = new URL(url);
-  const pathSegments = parsedUrl.pathname.split('/');
-  return pathSegments[pathSegments.length - 1];
+  if (url.match(/share.(?:go)?abstract.com\//)) {
+    const parsedUrl = new URL(url);
+    const pathSegments = parsedUrl.pathname.split('/');
+    return pathSegments[pathSegments.length - 1];
+  }
+
+  throw new Error(
+    `The provided url (${url}) is not valid. The url must come from "https://share.abstract.com/" or "https://share.goabstract.com/".`,
+  );
 }
 
 export function inferShareId(
