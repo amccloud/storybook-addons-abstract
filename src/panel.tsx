@@ -47,6 +47,18 @@ export function inferShareId(
   return shareId;
 }
 
+function mergeUrlParams(base: URL, ...urls: URL[]): URL {
+  const newBase = new URL('', base);
+
+  for (const url of urls) {
+    for (const [name, value] of url.searchParams.entries()) {
+      newBase.searchParams.append(name, value);
+    }
+  }
+
+  return newBase;
+}
+
 export function Panel() {
   const { storyId } = useStorybookState();
   const shareDescriptor = useParameter<Abstract.ShareDescriptor | void>(
@@ -56,12 +68,15 @@ export function Panel() {
   return React.useMemo(() => {
     if (!shareDescriptor) return null;
 
-    const embedUrl = `${ABSTRACT_APP_URL}/embed/${inferShareId(
-      shareDescriptor
-    )}?find={id}`;
+    let url = new URL(`/embed/${inferShareId(shareDescriptor)}`, ABSTRACT_APP_URL);
+    url.searchParams.append("find", storyId);
+
+    if ("url" in shareDescriptor) {
+      url = mergeUrlParams(url, new URL(shareDescriptor.url));
+    }
 
     return (
-      <Iframe src={embedUrl.replace("{id}", encodeURIComponent(storyId))} />
+      <Iframe src={url.toString()} />
     );
   }, [shareDescriptor, storyId]);
 }
