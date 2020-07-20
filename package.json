@@ -27,10 +27,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "clean": "rm -rf dist node_modules",
     "lint": "eslint .",
-    "check": "tsc",
+    "check": "tsc --noEmit",
     "test": "yarn check && yarn lint",
-    "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
+    "build": "yarn build:types && yarn build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions '.ts,.tsx'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "now-build": "yarn build && build-storybook --output-dir ./public",
@@ -58,7 +61,6 @@
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
@@ -71,7 +73,7 @@
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "storybook-abstract-addon": "file:./",
+    "storybook-abstract-addon": "link:./",
     "typescript": "^3.6.3"
   }
 }
