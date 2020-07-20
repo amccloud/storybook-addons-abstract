@@ -2635,10 +2635,10 @@ abbrev@1:
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
 
-abstract-sdk@8.0.0-beta.32:
-  version "8.0.0-beta.32"
-  resolved "https://registry.yarnpkg.com/abstract-sdk/-/abstract-sdk-8.0.0-beta.32.tgz#f7213edfedca20562a61d0b31f8ac03bf33b4915"
-  integrity sha512-kbrLtBOkJ4SE67SdHxsZJ/fFeKPQwmEi5Otd+VOyMh1zDSLqXZy9rUUIOUT+2ur/iE82sLrSJiZevulwtiW7kA==
+abstract-sdk@^8.0.0-beta.32:
+  version "8.0.0-beta.33"
+  resolved "https://registry.yarnpkg.com/abstract-sdk/-/abstract-sdk-8.0.0-beta.33.tgz#e8dd99aab5e7984ddfdab4e50f410e24d3eb053f"
+  integrity sha512-OYXWf3wjDlCKWYH5f15IU0vRVKo3VxhqWj0HubCbJFuYlXhlFDzoRp+gHuD2ItLDsnQ4FpaZ7LRTlp2KWysWcQ==
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@elasticprojects/abstract-cli" "^11.1.0"
@@ -6198,9 +6198,9 @@ lodash.unescape@4.0.1:
   integrity sha1-vyJJiGzlFM2hEvrpIYzcBlIR/Jw=
 
 lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
