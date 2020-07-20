@@ -25,25 +25,6 @@ function parseShareURL(url: string): string | void {
   );
 }
 
-export function inferShareId(
-  shareDescriptor: Abstract.ShareUrlDescriptor
-): string {
-  let shareId: string | void;
-
-  if ("url" in shareDescriptor) {
-    shareId = parseShareURL(shareDescriptor.url);
-  }
-  if (!shareId) {
-    throw new Error(
-      `Could not infer share id from ShareDescriptor: "${JSON.stringify(
-        shareDescriptor
-      )}"`
-    );
-  }
-
-  return shareId;
-}
-
 export function Panel() {
   const { storyId } = useStorybookState();
   const shareDescriptor = useParameter<Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor | void>(
@@ -53,7 +34,22 @@ export function Panel() {
   return React.useMemo(() => {
     if (!shareDescriptor) return null;
 
-    const shareId = shareDescriptor.shareId || inferShareId(shareDescriptor);
+    let shareId;
+
+    if ("url" in shareDescriptor) {
+      shareId = parseShareURL(shareDescriptor.url);
+    } else if ("shareId" in shareDescriptor) {
+      shareId = shareDescriptor.shareId
+    }
+
+    if (!shareId) {
+      throw new Error(
+        `Could not infer share id from ShareDescriptor: "${JSON.stringify(
+          shareDescriptor
+        )}"`
+      );
+    }
+
     const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
 
     return (
