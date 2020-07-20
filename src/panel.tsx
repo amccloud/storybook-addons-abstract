@@ -26,16 +26,13 @@ function parseShareURL(url: string): string | void {
 }
 
 export function inferShareId(
-  shareDescriptor: Abstract.ShareDescriptor
+  shareDescriptor: Abstract.ShareUrlDescriptor
 ): string {
   let shareId: string | void;
 
   if ("url" in shareDescriptor) {
     shareId = parseShareURL(shareDescriptor.url);
-  } else if ("shareId" in shareDescriptor) {
-    shareId = shareDescriptor.shareId;
   }
-
   if (!shareId) {
     throw new Error(
       `Could not infer share id from ShareDescriptor: "${JSON.stringify(
@@ -49,7 +46,7 @@ export function inferShareId(
 
 export function Panel() {
   const { storyId } = useStorybookState();
-  const shareDescriptor = useParameter<Abstract.ShareDescriptor | void>(
+  const shareDescriptor = useParameter<Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor | void>(
     PARAM_KEY
   );
 
