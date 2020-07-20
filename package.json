@@ -37,7 +37,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "now-build": "yarn build && build-storybook --output-dir ./public",
-    "now-dev": "start-storybook -p $PORT"
+    "now-dev": "start-storybook -p $PORT",
+    "release": "standard-version"
   },
   "dependencies": {
     "@storybook/addons": "^5.2.8",
@@ -73,6 +74,7 @@
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "standard-version": "^8.0.2",
     "storybook-abstract-addon": "link:./",
     "typescript": "^3.6.3"
   }
