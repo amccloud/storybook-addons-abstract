@@ -14,46 +14,46 @@ const Iframe = styled.iframe({
 });
 
 function parseShareURL(url: string): string | void {
-  return url.split(/share.(?:go)?abstract.com\//)[1];
-}
-
-export function inferShareId(
-  shareDescriptor: Abstract.ShareDescriptor
-): string {
-  let shareId: string | void;
-
-  if ("url" in shareDescriptor) {
-    shareId = parseShareURL(shareDescriptor.url);
-  } else if ("shareId" in shareDescriptor) {
-    shareId = shareDescriptor.shareId;
+  if (url.match(/share.(?:go)?abstract.com\//)) {
+    const parsedUrl = new URL(url);
+    const pathSegments = parsedUrl.pathname.split('/');
+    return pathSegments[pathSegments.length - 1];
   }
 
-  if (!shareId) {
-    throw new Error(
-      `Could not infer share id from ShareDescriptor: "${JSON.stringify(
-        shareDescriptor
-      )}"`
-    );
-  }
-
-  return shareId;
+  throw new Error(
+    `The provided url (${url}) is not valid. The url must come from "https://share.abstract.com/" or "https://share.goabstract.com/".`,
+  );
 }
 
 export function Panel() {
   const { storyId } = useStorybookState();
-  const shareDescriptor = useParameter<Abstract.ShareDescriptor | void>(
+  const shareDescriptor = useParameter<Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor | void>(
     PARAM_KEY
   );
 
   return React.useMemo(() => {
     if (!shareDescriptor) return null;
 
-    const embedUrl = `${ABSTRACT_APP_URL}/embed/${inferShareId(
-      shareDescriptor
-    )}?find={id}`;
+    let shareId;
+
+    if ("url" in shareDescriptor) {
+      shareId = parseShareURL(shareDescriptor.url);
+    } else if ("shareId" in shareDescriptor) {
+      shareId = shareDescriptor.shareId
+    }
+
+    if (!shareId) {
+      throw new Error(
+        `Could not infer share id from ShareDescriptor: "${JSON.stringify(
+          shareDescriptor
+        )}"`
+      );
+    }
+
+    const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
 
     return (
-      <Iframe src={embedUrl.replace("{id}", encodeURIComponent(storyId))} />
+      <Iframe src={url.toString()} />
     );
   }, [shareDescriptor, storyId]);
 }
