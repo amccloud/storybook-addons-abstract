@@ -1,5 +1,6 @@
 import * as Abstract from "abstract-sdk";
 import * as React from "react";
+import queryString from "query-string";
 import { useParameter, useStorybookState } from "@storybook/api";
 import { styled } from "@storybook/theming";
 import { PARAM_KEY } from "./constants";
@@ -41,7 +42,7 @@ export function Panel() {
   // Ignore stories without abstract parameters
   if (!params) return null;
 
-  const  { options, ...shareDescriptor } = params;
+  const  { options = {}, ...shareDescriptor } = params;
 
   return React.useMemo(() => {
     let shareId;
@@ -61,7 +62,7 @@ export function Panel() {
     }
 
     const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
-    url.search = new URLSearchParams(options).toString();
+    url.search = queryString.stringify(options);
 
     return (
       <Iframe src={url.toString()} />
