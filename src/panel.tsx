@@ -25,15 +25,25 @@ function parseShareURL(url: string): string | void {
   );
 }
 
+type AddonOptions = {
+  theme?: "light" | "dark" | "system",
+  chromeless?: boolean
+};
+
 export function Panel() {
   const { storyId } = useStorybookState();
-  const shareDescriptor = useParameter<Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor | void>(
+  const params = useParameter<(Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor) & {
+    options?: AddonOptions  
+  }>(
     PARAM_KEY
   );
 
-  return React.useMemo(() => {
-    if (!shareDescriptor) return null;
+  // Ignore stories without abstract parameters
+  if (!params) return null;
 
+  const  { options, ...shareDescriptor } = params;
+
+  return React.useMemo(() => {
     let shareId;
 
     if ("url" in shareDescriptor) {
@@ -51,6 +61,7 @@ export function Panel() {
     }
 
     const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
+    url.search = new URLSearchParams(options).toString();
 
     return (
       <Iframe src={url.toString()} />
