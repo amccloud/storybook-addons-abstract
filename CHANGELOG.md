@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/amccloud/storybook-addons-abstract/compare/v5.0.7...v5.1.0) (2020-07-30)
+
 ### [5.0.7](https://github.com/amccloud/storybook-addons-abstract/compare/v5.0.7-pre.0...v5.0.7) (2020-07-20)
 
 
