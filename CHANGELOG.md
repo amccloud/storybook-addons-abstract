@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0-1](https://github.com/amccloud/storybook-addons-abstract/compare/v5.1.1...v6.0.0-1) (2020-08-06)
+
+## [6.0.0-0](https://github.com/amccloud/storybook-addons-abstract/compare/v5.1.0...v6.0.0-0) (2020-08-06)
+
+
+### Bug Fixes
+
+* add @babel/preset-react to transpile JSX. ([e0c83e1](https://github.com/amccloud/storybook-addons-abstract/commit/e0c83e10d8bf774c444b3f6c1eae3baa689a4483))
+* use correct registry ([d8d9e76](https://github.com/amccloud/storybook-addons-abstract/commit/d8d9e7608a8a0aac56bc158f5d8b4371e230c22b))
+
 ## [6.0.0-0](https://github.com/amccloud/storybook-addons-abstract/compare/v5.1.0...v6.0.0-0) (2020-08-06)
 
 
