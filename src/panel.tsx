@@ -62,7 +62,7 @@ export function Panel() {
     }
 
     const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
-    url.search = queryString.stringify(options);
+    url.search = queryString.stringify({ ...options, find: storyId });
 
     return (
       <Iframe src={url.toString()} />
