@@ -11,7 +11,7 @@ An addon for Storybook that allows you to link to Abstract layers and collection
 
 ## Install
 
-Requires [storybook@^5.2.0](https://github.com/storybookjs/storybook/blob/next/CHANGELOG.md#520-september-13-2019)
+Requires [storybook@^6.0.0](https://github.com/storybookjs/storybook/blob/next/CHANGELOG.md#600-august-10-2020)
 
 ```sh
 npm install storybook-addons-abstract
