@@ -7,7 +7,9 @@
     "design",
     "abstract",
     "sketch",
-    "xd"
+    "xd",
+    "storybook-addon",
+    "popular"
   ],
   "homepage": "https://github.com/amccloud/storybook-addons-abstract#readme",
   "bugs": {
@@ -82,5 +84,9 @@
     "storybook-abstract-addon": "link:./",
     "typescript": "^3.6.3",
     "webpack": "^4.44.1"
+  },
+  "storybook": {
+    "icon": "https://pbs.twimg.com/profile_images/1145737312837545984/MrfJUSa4_400x400.png",
+    "displayName": "Abstract"
   }
 }
