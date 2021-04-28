@@ -11,38 +11,39 @@ const ABSTRACT_APP_URL =
 const Iframe = styled.iframe({
   width: "100%",
   height: "100%",
-  border: "0 none"
+  border: "0 none",
 });
 
 function parseShareURL(url: string): string | void {
   if (url.match(/share.(?:go)?abstract.com\//)) {
     const parsedUrl = new URL(url);
-    const pathSegments = parsedUrl.pathname.split('/');
+    const pathSegments = parsedUrl.pathname.split("/");
     return pathSegments[pathSegments.length - 1];
   }
 
   throw new Error(
-    `The provided url (${url}) is not valid. The url must come from "https://share.abstract.com/" or "https://share.goabstract.com/".`,
+    `The provided url (${url}) is not valid. The url must come from "https://share.abstract.com/" or "https://share.goabstract.com/".`
   );
 }
 
 type AddonOptions = {
-  theme?: "light" | "dark" | "system",
-  chromeless?: boolean
+  theme?: "light" | "dark" | "system";
+  chromeless?: boolean;
 };
 
 export function Panel() {
   const { storyId } = useStorybookState();
-  const params = useParameter<(Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor) & {
-    options?: AddonOptions  
-  }>(
-    PARAM_KEY
-  );
+  const params = useParameter<
+    (Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor) & {
+      options?: AddonOptions;
+      slug?: string;
+    }
+  >(PARAM_KEY);
 
   // Ignore stories without abstract parameters
   if (!params) return null;
 
-  const  { options = {}, ...shareDescriptor } = params;
+  const { options = {}, ...shareDescriptor } = params;
 
   return React.useMemo(() => {
     let shareId;
@@ -50,7 +51,7 @@ export function Panel() {
     if ("url" in shareDescriptor) {
       shareId = parseShareURL(shareDescriptor.url);
     } else if ("shareId" in shareDescriptor) {
-      shareId = shareDescriptor.shareId
+      shareId = shareDescriptor.shareId;
     }
 
     if (!shareId) {
@@ -62,10 +63,11 @@ export function Panel() {
     }
 
     const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
-    url.search = queryString.stringify({ ...options, find: storyId });
+    url.search = queryString.stringify({
+      ...options,
+      find: params?.slug || storyId,
+    });
 
-    return (
-      <Iframe src={url.toString()} />
-    );
+    return <Iframe src={url.toString()} />;
   }, [shareDescriptor, storyId]);
 }
