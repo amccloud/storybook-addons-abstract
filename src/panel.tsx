@@ -36,7 +36,7 @@ export function Panel() {
   const params = useParameter<
     (Abstract.ShareDescriptor | Abstract.ShareUrlDescriptor) & {
       options?: AddonOptions;
-      slug?: string;
+      find?: string;
     }
   >(PARAM_KEY);
 
@@ -65,7 +65,7 @@ export function Panel() {
     const url = new URL(`/embed/${shareId}`, ABSTRACT_APP_URL);
     url.search = queryString.stringify({
       ...options,
-      find: params?.slug || storyId,
+      find: params?.find || storyId,
     });
 
     return <Iframe src={url.toString()} />;
