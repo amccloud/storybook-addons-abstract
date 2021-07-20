@@ -19,32 +19,28 @@ npm install storybook-addons-abstract
 
 ## Usage
 
-within `addons.js`:
+within `main.js`:
+
+```diff
+module.exports = {
+  stories: ['../src/**/*.stories.@(tsx|mdx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/preset-create-react-app',
++   'storybook-addons-abstract/register'
+  ]
+};
+```
+
+
+or using the old `addons.js`:
 
 ```js
 import "storybook-addons-abstract/register";
 ```
 
-within your stories:
-
-```js
-import React from "react";
-import { storiesOf } from "@storybook/react";
-
-storiesOf("Blog", module)
-  .addParameters({
-    abstract: {
-      // Copy a collection or layer share url from Abstract
-      url: "https://share.goabstract.com/733ca894-a4bb-43e3-a2b1-dd27ff6d00c4"
-    }
-  })
-   // Name your stories after layers in the collection
-  .add("Blog Index", () => <BlogIndex />)
-  .add("Blog Gallery", () => <BlogGallery />)
-  .add("Blog Post", () => <BlogPost />);
-```
-
-or using the new [Component Story Format](https://storybook.js.org/docs/formats/component-story-format/) api:
+with the new [Component Story Format](https://storybook.js.org/docs/formats/component-story-format/) API:
 
 ```js
 import React from "react";
@@ -71,6 +67,25 @@ export const blogGallery = () => (
 export const blogPost = () => (
   <BlogPost />
 );
+```
+
+or using the old stories:
+
+```js
+import React from "react";
+import { storiesOf } from "@storybook/react";
+
+storiesOf("Blog", module)
+  .addParameters({
+    abstract: {
+      // Copy a collection or layer share url from Abstract
+      url: "https://share.goabstract.com/733ca894-a4bb-43e3-a2b1-dd27ff6d00c4"
+    }
+  })
+   // Name your stories after layers in the collection
+  .add("Blog Index", () => <BlogIndex />)
+  .add("Blog Gallery", () => <BlogGallery />)
+  .add("Blog Post", () => <BlogPost />);
 ```
 
 ## Options
