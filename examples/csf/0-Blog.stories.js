@@ -1,4 +1,3 @@
-import React from "react";
 import { BlogIndex, BlogGallery, BlogPost } from "../";
 
 export default {
