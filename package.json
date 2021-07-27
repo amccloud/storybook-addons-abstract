@@ -31,8 +31,8 @@
   "scripts": {
     "clean": "rm -rf dist node_modules",
     "lint": "eslint .",
-    "check": "tsc --noEmit",
-    "test": "yarn check && yarn lint",
+    "typecheck": "tsc --noEmit",
+    "test": "yarn typecheck && yarn lint",
     "build": "yarn build:types && yarn build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions '.ts,.tsx'",
@@ -54,18 +54,18 @@
     "global": "^4.3.2",
     "prettier": "^1.18.2",
     "query-string": "^6.13.1",
-    "react": "^16.8.3",
+    "react": "^17.0.2",
     "ts-dedent": "^1.1.0",
-    "use-image": "^1.0.3"
+    "use-image": "^1.0.8"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
+    "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.6.0",
+    "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.6.0",
     "@storybook/addon-actions": "^6.0.5",
     "@storybook/addon-links": "^6.0.5",
@@ -79,10 +79,10 @@
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "react-dom": "^16.13.1",
+    "react-dom": "^17.0.2",
     "standard-version": "^8.0.2",
     "storybook-abstract-addon": "link:./",
-    "typescript": "^3.6.3",
+    "typescript": "^4.3.5",
     "webpack": "^4.44.1"
   },
   "storybook": {

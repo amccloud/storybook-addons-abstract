@@ -2,7 +2,12 @@
 module.exports = {
   presets: [
     "@babel/preset-typescript",
-    "@babel/preset-react",
-    ["@babel/preset-env", { "modules": "commonjs" }]
-  ]
+    [
+      "@babel/preset-react",
+      {
+        runtime: "automatic",
+      },
+    ],
+    ["@babel/preset-env", { modules: "commonjs" }],
+  ],
 };

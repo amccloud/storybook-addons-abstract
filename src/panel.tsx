@@ -1,5 +1,5 @@
 import * as Abstract from "abstract-sdk";
-import * as React from "react";
+import { useMemo } from "react";
 import queryString from "query-string";
 import { useParameter, useStorybookState } from "@storybook/api";
 import { styled } from "@storybook/theming";
@@ -45,7 +45,7 @@ export function Panel() {
 
   const { options = {}, ...shareDescriptor } = params;
 
-  return React.useMemo(() => {
+  return useMemo(() => {
     let shareId;
 
     if ("url" in shareDescriptor) {
