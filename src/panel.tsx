@@ -40,14 +40,13 @@ export function Panel() {
     }
   >(PARAM_KEY);
 
-  // Ignore stories without abstract parameters
-  if (!params) return null;
-
-  const { options = {}, ...shareDescriptor } = params;
-
   return useMemo(() => {
-    let shareId;
+     // Ignore stories without abstract parameters
+    if (!params) return null;
 
+    const { options = {}, ...shareDescriptor } = params;
+
+    let shareId;
     if ("url" in shareDescriptor) {
       shareId = parseShareURL(shareDescriptor.url);
     } else if ("shareId" in shareDescriptor) {
@@ -69,5 +68,5 @@ export function Panel() {
     });
 
     return <Iframe src={url.toString()} />;
-  }, [shareDescriptor, storyId]);
+  }, [params, storyId]);
 }
